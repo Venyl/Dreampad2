@@ -27,15 +27,16 @@ export const getServerSideProps: GetServerSideProps = async context => {
         )}/${d.getFullYear()}`;
     }
 
-    const noteRecords = await pb
-        .collection('notes')
-        .getFullList<Note>(200, { filter: `author.id="${user?.id}"` });
-    const notes = noteRecords.map(note => ({
-        id: note.id,
-        title: note.title,
-        content: note.content,
-        created: formatDate(note.created),
-    }));
+    // const noteRecords = await pb
+    //     .collection('notes')
+    //     .getFullList<Note>(200, { filter: `author.id="${user?.id}"` });
+    // const notes = noteRecords.map(note => ({
+    //     id: note.id,
+    //     title: note.title,
+    //     content: note.content,
+    //     created: formatDate(note.created),
+    // }));
+    const notes = [] as Note[];
     console.log(notes);
 
     return {
