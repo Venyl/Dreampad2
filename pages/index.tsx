@@ -6,7 +6,6 @@ import Header from '../components/Header';
 import Note from '../components/Note';
 import { useContext, useState } from 'react';
 import { UserContext } from './MyContext';
-import console from 'console';
 
 type Note = {
     id: string;
@@ -86,16 +85,20 @@ export default function Home({ username, userNotes }: Props) {
                 </h1>
                 <h2>Your notes</h2>
                 <div className="justify-self-start">
-                    {notes.map(note => (
-                        <Note
-                            id={note.id}
-                            key={note.id}
-                            href={`/note/${note.id}`}
-                            title={note.title}
-                            created={note.created}
-                            deleteNote={deleteNote}
-                        />
-                    ))}
+                    {notes.length > 0 ? (
+                        notes.map(note => (
+                            <Note
+                                id={note.id}
+                                key={note.id}
+                                href={`/note/${note.id}`}
+                                title={note.title}
+                                created={note.created}
+                                deleteNote={deleteNote}
+                            />
+                        ))
+                    ) : (
+                        <p className="text-primary-100">You have no notes</p>
+                    )}
                 </div>
             </main>
         </>
