@@ -2,7 +2,7 @@ import { GetServerSidePropsContext, PreviewData } from 'next/types';
 import PocketBase from 'pocketbase';
 import { ParsedUrlQuery } from 'querystring';
 
-export const pb = new PocketBase('http://127.0.0.1:8090');
+export const pb = new PocketBase('https://dreampad2.fly.dev/');
 // you can place this helper in a separate file so that it can be reused
 export async function initPocketBase(
     context: GetServerSidePropsContext<ParsedUrlQuery, PreviewData>
