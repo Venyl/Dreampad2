@@ -4,9 +4,9 @@ import { initPocketBase } from '../lib/pocketbase';
 import Alunia from '../components/Alunia';
 import Header from '../components/Header';
 import Note from '../components/Note';
-import { useRouter } from 'next/router';
 import { useContext, useState } from 'react';
 import { UserContext } from './MyContext';
+import console from 'console';
 
 type Note = {
     id: string;
@@ -36,6 +36,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
         content: note.content,
         created: formatDate(note.created),
     }));
+    console.log(notes);
 
     return {
         props: {
